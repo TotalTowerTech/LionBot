@@ -1,1 +1,1 @@
-worker: node lionbot.js
+node .
