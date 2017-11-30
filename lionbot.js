@@ -6,8 +6,8 @@
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the MIT License.
  *
- *  FloppyDiskDrive wrote the handler, help command, and helped me fix my derps. (Thanks again! c:)
- *
+ *  FloppyDiskDrive wrote the handler and helped me fix my derps. (Thanks again! c:)
+ *  Jtsshieh wrote the help command
  *
  *
  * *************************************/
