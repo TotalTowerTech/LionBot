@@ -1,0 +1,17 @@
+{
+  "name": "LionBot",
+  "version": "1.0.0",
+  "description": "A Bot",
+  "main": "lionbot.js",
+  "scripts": {
+    "start": "node lionbot.js"
+  },
+  "author": "Nyab",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  },
+  "engines": {
+    "node": "8.5.0"
+  }
+}
