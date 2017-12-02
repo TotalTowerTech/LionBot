@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node lionbot.js"
   },
-  "author": "Nyab",
+  "author": "Nayab",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.2.1"
