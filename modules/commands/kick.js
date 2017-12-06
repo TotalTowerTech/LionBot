@@ -9,7 +9,7 @@ module.exports.run = (client, message, args, throwex) => {
 
         message.guild.member(person).kick(args.slice(1).join(" ")).then(member => {
             let embed = new Discord.RichEmbed()
-            embed.setTitle(`Someone was a bad boy and got kicked.`)
+            embed.setTitle(`**KICK**`)
             embed.setDescription(`${kick[Math.floor(Math.random () * kick.length)]}`)
             embed.addField('Member Kicked: ', (person))
             embed.addField('Reason: ', (`${args.join(" ")}`))
@@ -26,4 +26,3 @@ module.exports.help = {
     notes: 'Kicks a person from the server.',
     category: 'Moderation'
 }
-
