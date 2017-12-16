@@ -23,16 +23,17 @@ var vicCount = 0;
 var sameMsg = {};
 //Let's login to our bot account!
 var token = config.token
-client.login(process.env.TOKEN)
+client.login('UmExcuseMeThatIsPrivate')
 //Set the game
 client.on('ready', () => {
     console.log("[i] LionBot " + ver + " is now ready to go!");
-    function gameRandomizer() {
-        var presence = ["Wii Sports", `${prefix}help | LionBot v${ver}`, "stuff", "Save Net Neutrality!", `with ${client.guilds.size} guilds`];
-        var gameSetter = presence[Math.floor(Math.random() * presence.length)];
-        client.user.setGame(gameSetter);
-    }
-    var gameChooser = setInterval(gameRandomizer, 30000);
+    client.user.setGame("Save Net Neutrality! | lion.help");
+    //function gameRandomizer() {
+        //var presence = ["Wii Sports", `${prefix}help | LionBot v${ver}`, "stuff", "Save Net Neutrality!", `with ${client.guilds.size} guilds`];
+        //var gameSetter = presence[Math.floor(Math.random() * presence.length)];
+        //client.user.setGame(gameSetter);
+    //}
+    //var gameChooser = setInterval(gameRandomizer, 30000);
 });
 //Check for Mod Permissions
 var modCommand;
@@ -45,7 +46,7 @@ function hasPermissions(perm) {
     }
 }
 //Command Stuff
-fs.readdir("./modules/commands", (err, files) => {
+fs.readdir("./modules/commands/${f}", (err, files) => {
     if (err) console.error(err);
 
     let modules = files.filter(f => f.split(".").pop() === "js");
