@@ -23,7 +23,7 @@ var vicCount = 0;
 var sameMsg = {};
 //Let's login to our bot account!
 var token = config.token
-client.login(process.ENV.TOKEN)
+client.login(process.env.TOKEN)
 //Set the game
 client.on('ready', () => {
     console.log("[i] LionBot " + ver + " is now ready to go!");
