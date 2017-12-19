@@ -49,7 +49,7 @@ function hasPermissions(perm) {
 fs.readdir("./modules/commands/${f}", (err, files) => {
     if (err) console.error(err);
 
-    let modules = files.filter(f => f.split(".").pop() === "js");
+    let modules = files(f => f.split(".").pop() === "js");
     if (modules.length <= 0) {
         console.log("No public commands found. Running with no public commands loaded.");
         return;
