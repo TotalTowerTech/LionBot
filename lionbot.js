@@ -27,13 +27,12 @@ client.login(process.env.TOKEN)
 //Set the game
 client.on('ready', () => {
     console.log("[i] LionBot " + ver + " is now ready to go!");
-    client.user.setGame("Save Net Neutrality! | lion.help");
-    //function gameRandomizer() {
-        //var presence = ["Wii Sports", `${prefix}help | LionBot v${ver}`, "stuff", "Save Net Neutrality!", `with ${client.guilds.size} guilds`];
-        //var gameSetter = presence[Math.floor(Math.random() * presence.length)];
-        //client.user.setGame(gameSetter);
-    //}
-    //var gameChooser = setInterval(gameRandomizer, 30000);
+    function gameRandomizer() {
+        var presence = ["Wii Sports", `${prefix}help | LionBot v${ver}`, "stuff", "Save Net Neutrality!", `with ${client.guilds.size} guilds`];
+        var gameSetter = presence[Math.floor(Math.random() * presence.length)];
+        client.user.setGame(gameSetter);
+    }
+    var gameChooser = setInterval(gameRandomizer, 30000);
 });
 //Check for Mod Permissions
 var modCommand;
@@ -46,10 +45,10 @@ function hasPermissions(perm) {
     }
 }
 //Command Stuff
-fs.readdir("./modules/commands/${f}", (err, files) => {
+fs.readdir("./modules/commands", (err, files) => {
     if (err) console.error(err);
 
-    let modules = (f => f.split(".").pop() === "js");
+    let modules = files.filter(f => f.split(".").pop() === "js");
     if (modules.length <= 0) {
         console.log("No public commands found. Running with no public commands loaded.");
         return;
