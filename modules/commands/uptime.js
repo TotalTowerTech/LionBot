@@ -11,7 +11,7 @@ module.exports.run = (client, message, args) => {
     embed.setTitle("Uptime :clock1:")
     embed.setDescription("I mean, I'm up almost 24/7 thanks to FloppyDiskDrive, but here ya go!")
     embed.addField(outputStuffs, "rawr c:")
-    message.channel.send({ embed })
+    message.channel.send({ embed });
   }
 
   module.exports.help = {
