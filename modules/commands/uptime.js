@@ -1,5 +1,5 @@
 module.exports.run = (client, message, args) => {
-    const Discord = require('discord.js')
+    const discord = require('discord.js')
     let uptimeData = client.uptime;
     let minutes = Math.round((uptimeData / 1000 / 60) % 60);
     let hours = Math.round((minutes / 60) % 60);
