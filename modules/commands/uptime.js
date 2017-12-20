@@ -4,12 +4,12 @@ module.exports.run = (client, message, args) => {
     var minutes = Math.round((uptimeData / 1000 / 60) % 60);
     var hours = Math.round((minutes / 60) % 60);
     var days = Math.round((hours / 24) % 24);
-    var outputStuffs = (`:clock1: I have been up for exactly { hours } hours and { minutes } minutes. That is { days } days.`)
+    var outputStuffs = `I have been up for exactly { hours } hours and { minutes } minutes. That is { days } days.`;
 
     let embed = new Discord.RichEmbed()
     embed.setTitle("Uptime :clock1:")
     embed.setDescription("I mean, I'm up almost 24/7 thanks to FloppyDiskDrive, but here ya go!")
-    embed.addField({ outputStuffs })
+    embed.addField({ outputStuffs }, "I need some sleep")
     message.channel.send({ embed })
   }
 
