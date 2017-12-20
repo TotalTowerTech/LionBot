@@ -1,7 +1,7 @@
 module.exports.run = (client, message, args) => {
     const Discord = require('discord.js')
     let uptimeData = client.uptime;
-    let minutes = Math.round((baseUptime / 1000 / 60) % 60);
+    let minutes = Math.round((uptimeData / 1000 / 60) % 60);
     let hours = Math.round((minutes / 60) % 60);
     let days = Math.round((hours / 24) % 24);
     let output = `I have been up for exactly {hours} hours and {minutes} minutes. That's {days} days.`;
