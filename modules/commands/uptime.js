@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
     let embed = new Discord.RichEmbed()
     embed.setTitle("Uptime :clock1:")
     embed.setDescription("I mean, I'm up almost 24/7 thanks to FloppyDiskDrive, but here ya go!")
-    embed.addField({ outputStuffs }, "I need some sleep")
+    embed.addField(outputStuffs, "rawr c:")
     message.channel.send({ embed })
   }
 
