@@ -11,5 +11,5 @@ module.exports.help = {
     name: "embed say",
     args: "[args]",
     notes: `Repeats what you type, but attributes it to you.`,
-    category: 'fun'
+    category: 'Fun'
 }
