@@ -1,6 +1,6 @@
 module.exports.run = (client, message, args, throwex) => {
   let nick = args.join(" ")
-  if nick = ("") {
+  if (nick = "") {
   message.member.setNickname(loldoesanyonereadthese)
   message.reply ("Ok! I cleared that nickname for you!")
   }
