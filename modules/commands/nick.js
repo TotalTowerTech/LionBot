@@ -1,6 +1,13 @@
 module.exports.run = (client, message, args, throwex) => {
-  message.member.setNickname(`${args.join(" ")}`)
+  let loldoesanyonereadthese = args.join(" ")
+  if loldoesanyonereadthese = "" {
+  message.member.setNickname(loldoesanyonereadthese)
+  message.reply ("Ok! I cleared that nickname for you!")
+  }
+  else {
+  message.member.setNickname(loldoesanyonereadthese)
   message.reply(`Ok! I set your nickname to ${args.join(" ")}`)
+}
 }
 module.exports.help = {
     name: 'nick',
