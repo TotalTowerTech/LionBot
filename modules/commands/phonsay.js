@@ -48,9 +48,10 @@ module.exports.run = (client, message, args) => {
   		phonArray["-"]="[Dash]";
   		phonArray["."]="[Dot]";
   		phonArray[" "]="[space]";
-}
-if(behavior=="popup"){
-			var trans=font_tag;}
+
+if(behavior=="popup")
+			var trans=font_tag;
+      
 message.channel.send(trans)
 
 }
