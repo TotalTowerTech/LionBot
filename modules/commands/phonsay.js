@@ -3,7 +3,7 @@ module.exports.run = (client, message, args) => {
   var font_tag="";
   var text=args.join(" ");
   var lctext=text.toLowerCase();
-  var trans="";
+  var trans=" ";
   		var phonArray=new Array;
   		phonArray["a"]="Alpha";
   		phonArray["b"]="Bravo";
@@ -48,8 +48,15 @@ module.exports.run = (client, message, args) => {
 for(var i=0;i < lctext.length;i++){
       var thisChar=lctext.charAt(i);
       trans += phonArray[thisChar] + " ";}
-     message.channel.send(trans)
 
+let embed = new Discord.RichEmbed()
+embed.setTitle("Phonetic Translation")
+embed.setDescription("Beat THIS Ayana!")
+embed.addField("Input:", `\`\`\`${args.join(" ")}\`\`\``)
+embed.addField("Output:", `\`\`\`${(trans)}\`\`\``)
+embed.setColor("ORANGE")
+message.delete()
+message.channel.send( {embed} )
 }
 
 
