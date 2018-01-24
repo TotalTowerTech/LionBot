@@ -1,4 +1,5 @@
 module.exports.run = (client, message, args) => {
+      const Discord = require('discord.js');
   var behavior="popup";
   var font_tag="";
   var text=args.join(" ");
