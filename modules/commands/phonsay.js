@@ -51,7 +51,7 @@ module.exports.run = (client, message, args) => {
      message.channel.send(trans)
 
 }
-}
+
 
 module.exports.help = {
     name: "phonsay",
