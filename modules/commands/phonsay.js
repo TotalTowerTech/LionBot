@@ -3,6 +3,7 @@ module.exports.run = (client, message, args) => {
   var font_tag="";
   var text=args.join(" ");
   var lctext=text.toLowerCase();
+  var trans="";
   		var phonArray=new Array;
   		phonArray["a"]="Alpha";
   		phonArray["b"]="Bravo";
