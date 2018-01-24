@@ -49,20 +49,9 @@ module.exports.run = (client, message, args) => {
   		phonArray["."]="[Dot]";
   		phonArray[" "]="[space]";
 
-      if(lctext.length > 0)
-      			{
-      				for(var i=0;i < lctext.length;i++)
-      				{
-      					var thisChar=lctext.charAt(i);
-      					trans += phonArray[thisChar] + " ";
-      				}
-      			}
-      			else
-      			{
-      				trans = "Result comes here...";
-      			}
-
-message.channel.send(trans)
+      var thisChar=lctext.charAt(i);
+      trans += phonArray[thisChar] + " ";
+     message.channel.send(trans)
 
 }
 }
