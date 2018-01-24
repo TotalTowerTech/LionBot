@@ -2,7 +2,7 @@ module.exports.run = (client, message, args) => {
   function NatoPhon(){
   		var behavior="popup";
   		var font_tag="";
-  		var text=args.join(" ");
+  		var text=${args.join(" ")};
   		var lctext=text.toLowerCase();
   		var phonArray=new Array;
   		phonArray["a"]="Alpha";
@@ -31,9 +31,6 @@ module.exports.run = (client, message, args) => {
   		phonArray["x"]="X-ray";
   		phonArray["y"]="Yankee";
   		phonArray["z"]="Zulu";
-  		phonArray["�"]="Aerlig";
-  		phonArray["�"]="Osalsh";
-  		phonArray["�"]="Aring";
   		phonArray["0"]="Zero";
   		phonArray["1"]="One";
   		phonArray["2"]="Two";
