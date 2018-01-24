@@ -44,9 +44,9 @@ module.exports.run = (client, message, args) => {
   		phonArray["-"]="[Dash]";
   		phonArray["."]="[Dot]";
   		phonArray[" "]="[space]";
-
+for(var i=0;i < lctext.length;i++){
       var thisChar=lctext.charAt(i);
-      trans += phonArray[thisChar] + " ";
+      trans += phonArray[thisChar] + " ";}
      message.channel.send(trans)
 
 }
