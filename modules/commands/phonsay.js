@@ -56,10 +56,11 @@ embed.setDescription("Beat THIS Ayana!")
 embed.addField("Input:", `\`\`\`${args.join(" ")}\`\`\``)
 embed.addField("Output:", `\`\`\`${(trans)}\`\`\``)
 embed.setColor("ORANGE")
+
 message.delete()
 message.channel.send( {embed} )
 }
-
+//www.ip-tools.net/natophon.php
 
 module.exports.help = {
     name: "phonsay",
