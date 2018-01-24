@@ -51,9 +51,10 @@ module.exports.run = (client, message, args) => {
 
 if(behavior=="popup")
 			var trans=font_tag;
-      
+
 message.channel.send(trans)
 
+}
 }
 
 module.exports.help = {
