@@ -1,9 +1,8 @@
 module.exports.run = (client, message, args) => {
-  function NatoPhon(){
-  		var behavior="popup";
-  		var font_tag="";
-  		var text=args.join(" ");
-  		var lctext=text.toLowerCase();
+  var behavior="popup";
+  var font_tag="";
+  var text=args.join(" ");
+  var lctext=text.toLowerCase();
   		var phonArray=new Array;
   		phonArray["a"]="Alpha";
   		phonArray["b"]="Bravo";
@@ -45,7 +44,7 @@ module.exports.run = (client, message, args) => {
   		phonArray["-"]="[Dash]";
   		phonArray["."]="[Dot]";
   		phonArray[" "]="[space]";
-}
+
       var thisChar=lctext.charAt(i);
       trans += phonArray[thisChar] + " ";
      message.channel.send(trans)
