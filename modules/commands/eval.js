@@ -2,11 +2,14 @@ module.exports.run = (client, message) => {
 	const Discord = require('discord.js');
   let args = message.content.split(" ").slice(1);
 
-    if(message.author.id == 299314446428274689){
+    if(message.author.id == 299314446428274689 || 228271067821506560){
 			const code = args.join(" ");
       let evaled = eval(code);
-
+			try{
       	if (typeof evaled !== "string"){
+
+
+
         evaled = require("util").inspect(evaled)}
 				let embed = new Discord.RichEmbed()
 				embed.setTitle("Evaluation")
@@ -15,7 +18,10 @@ module.exports.run = (client, message) => {
 				embed.addField("Output:", `\`\`\`js\n${(evaled)}\n\`\`\``)
 				embed.setColor("BLACK")
 				embed.setTimestamp()
-
+			}
+			catch(err) {
+			console.error(err)
+			}
       message.channel.send( {embed} );
 }
     else {
