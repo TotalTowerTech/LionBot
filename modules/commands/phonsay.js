@@ -1,5 +1,5 @@
 module.exports.run = (client, message, args) => {
-      const Discord = require('discord.js');
+    const Discord = require('discord.js');
   var behavior="popup";
   var font_tag="";
   var text=args.join(" ");
@@ -56,11 +56,10 @@ embed.setDescription("Beat THIS Ayana!")
 embed.addField("Input:", `\`\`\`${args.join(" ")}\`\`\``)
 embed.addField("Output:", `\`\`\`${(trans)}\`\`\``)
 embed.setColor("ORANGE")
-
 message.delete()
 message.channel.send( {embed} )
 }
-//www.ip-tools.net/natophon.php
+
 
 module.exports.help = {
     name: "phonsay",

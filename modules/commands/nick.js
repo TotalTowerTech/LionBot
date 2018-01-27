@@ -1,6 +1,15 @@
 module.exports.run = (client, message, args, throwex) => {
-  message.member.setNickname(`${args.join(" ")}`)
-  message.reply(`Ok! I set your nickname to "${args.join(" ")}". Please note that this will be blank if you cleared your nickname.`);
+  let nick == ${args.join(" ")}
+  if (nick.length >= 32){
+    message.reply("That nickname is too long! 32 Charecters or less please!");
+  }
+  else if (nick.length = 0){
+  message.reply("Nickname Cleared!");
+  }
+  else {
+    message.member.setNickname(`${args.join(" ")}`)
+    message.reply(`Ok! I set your nickname to "${args.join(" ")}". `);
+  }
 }
 module.exports.help = {
     name: 'nick',

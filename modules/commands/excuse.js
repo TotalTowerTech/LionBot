@@ -1,7 +1,7 @@
 
 module.exports.run = (client, message, args) => {
     const Discord = require('discord.js')
-    var reply = ["Yes", "No", "IDK I'm just a bot", "Ask PrecipitationJS"]
+    var reply = ["LOL Mate Chill. Excuses coming soon."]
     let embed = new Discord.RichEmbed()
         embed.setTitle(`The Excuse Ball has spoken!`)
         embed.setDescription(`${reply[Math.floor(Math.random () * reply.length)]}`)

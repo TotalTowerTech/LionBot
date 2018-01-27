@@ -13,7 +13,7 @@ module.exports.run = (client, message, args, throwex) => {
             embed.setDescription(`${kick[Math.floor(Math.random () * kick.length)]}`)
             embed.addField('Member Kicked: ', (person))
             embed.addField('Reason: ', (`${args.join(" ")}`))
-            message.channel.send({ embed });
+            message.guild.channels.find("name", "logs").sendMessage({ embed });
 
         })
     } catch (error) {

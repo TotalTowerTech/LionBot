@@ -6,6 +6,8 @@ let embed = new discord.RichEmbed()
 embed.setTitle("LionBot says...")
 embed.setDescription(phrase)
 embed.setFooter(`Said by ${message.author.username} at ${new Date()}`, message.author.avatarURL)
+embed.setColor("ORANGE")
+message.delete()
 message.channel.send({ embed })
 }
 module.exports.help = {
