@@ -56,15 +56,7 @@ fs.readdir("./modules/commands/${f}", (err, files) => {
     }
 
     console.log(`Now loading ${modules.length} public commands.`)
-    modules.forEach((f, i) => {
-        let props = require(`./modules/commands/${f}`);
-        try {
-            client.commands.set(props.help.name, props);
-        } catch (err) {
-            console.log('One or more of your public commands caused an error. Check your public commands and try again. \n=> ' + err);
-            process.exit(1)
-        }
-    })
+
 
     console.log(`Finshed loading all ${modules.length} commands.`)
 })
