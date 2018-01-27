@@ -1,5 +1,5 @@
 module.exports.run = (client, message, args, throwex) => {
-  let nick == ${args.join(" ")}
+  let nick = (`${args.join(" ")}`)
   if (nick.length >= 32){
     message.reply("That nickname is too long! 32 Charecters or less please!");
   }
