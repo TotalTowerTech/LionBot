@@ -46,7 +46,7 @@ function hasPermissions(perm) {
     }
 }
 
-fs.readdir(`/modules/commands/${f}`, (err, files) => {
+fs.readdir(`./modules/commands/${f}`, (err, files) => {
     if (err) console.error(err);
 
     let modules = files.filter(f => f.split(".").pop() === "js");
@@ -57,7 +57,7 @@ fs.readdir(`/modules/commands/${f}`, (err, files) => {
 
     console.log(`Now loading ${modules.length} public commands.`)
     modules.forEach((f, i) => {
-        let props = require(`/modules/commands/${f}`);
+        let props = require(`./modules/commands/${f}`);
         try {
             client.commands.set(props.help.name, props);
         } catch (err) {
