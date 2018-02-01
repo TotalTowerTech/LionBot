@@ -46,7 +46,7 @@ function hasPermissions(perm) {
     }
 }
 
-fs.readdir(`./modules/commands/${f}`, (err, files) => {
+fs.readdir(`./modules/commands/`, (err, files) => {
     if (err) console.error(err);
 
     let modules = files.filter(f => f.split(".").pop() === "js");
