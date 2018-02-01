@@ -1,15 +1,22 @@
-module.exports.run = (client, message) => {
+module.exports.run = (client, message, throwex) => {
 	const Discord = require('discord.js');
   let args = message.content.split(" ").slice(1);
-
+	function throwex(e) {
+			var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
+			let embed = new Discord.RichEmbed()
+					.setTitle(embedTitle[Math.floor(Math.random() * embedTitle.length)])
+					.addField("Error Details", e)
+					.setFooter("The error that was thrown has been logged to the console.")
+					.setColor("RED")
+			message.channel.send({ embed });
+			console.log(e);
+	};
     if(message.author.id == 299314446428274689 || 228271067821506560){
 			const code = args.join(" ");
-      let evaled = eval(code);
-			try{
+
+			try {
+				let evaled = eval(code);
       	if (typeof evaled !== "string"){
-
-
-
         evaled = require("util").inspect(evaled)}
 				let embed = new Discord.RichEmbed()
 				embed.setTitle("Evaluation")
@@ -19,10 +26,9 @@ module.exports.run = (client, message) => {
 				embed.setColor("BLACK")
 				embed.setTimestamp()
 			}
-			catch(err) {
-			console.error(err)
+			catch (error) {
+			throwex(error)
 			}
-      message.channel.send( {embed} );
 }
     else {
   		message.reply("No! I will not run your filthy code!")

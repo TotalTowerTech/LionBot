@@ -1,7 +1,6 @@
 module.exports.run = (client, message, args, throwex) => {
 const discord = require('discord.js');
-let phrase = args.join(" ");
-let embed = new discord.RichEmbed()
+let suggestion = args.join(" ");
 function throwex(e) {
     var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
     let embed = new Discord.RichEmbed()
@@ -13,21 +12,28 @@ function throwex(e) {
     console.log(e);
 };
 try{
-embed.setTitle("LionBot says...")
-embed.setDescription(phrase)
-embed.setFooter(`Said by ${message.author.username} at ${new Date()}`, message.author.avatarURL)
-embed.setColor("ORANGE")
-message.delete()
-message.channel.send({ embed })
+if (suggestion.length == 0){
+  message.reply("If you have nothing to suggest why did you run the command?")
+} else{
+  let embed = new discord.RichEmbed()
+  embed.setTitle("New Suggestion!")
+  embed.setDescription(suggestion)
+  embed.setFooter(`Suggested by ${message.author.username} at ${new Date()}`, message.author.avatarURL)
+  embed.setColor("ORANGE")
+  message.delete()
+  message.guild.channels.find("name", "suggestions").send({ embed })
+}
+}
+catch (e) {
+  throwex(e)
 }
 
-catch (e) {
-throwex(e)
 }
-}
+
+
 module.exports.help = {
-    name: "embedsay",
+    name: "suggest",
     args: "[args]",
-    notes: `Repeats what you type, but attributes it to you.`,
-    category: 'Fun'
+    notes: `Makes a suggestion for the current guild.`,
+    category: 'Moderation'
 }

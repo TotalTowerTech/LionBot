@@ -1,9 +1,19 @@
-﻿module.exports.run = (client, message, args) => {
+﻿module.exports.run = (client, message, args, throwex) => {
     const Discord = require('discord.js');
+    function throwex(e) {
+        var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
+        let embed = new Discord.RichEmbed()
+            .setTitle(embedTitle[Math.floor(Math.random() * embedTitle.length)])
+            .addField("Error Details", e)
+            .setFooter("The error that was thrown has been logged to the console.")
+            .setColor("RED")
+        message.channel.send({ embed });
+        console.log(e);
+    };
     try {
         if (!args[0]) {
             let categories = [];
-            let ver = "0.0.1"
+            let ver = "1.0.4"
             let embed = new Discord.RichEmbed()
             let helpString = "";
             let commands = Array.from(client.commands.keys());
@@ -20,7 +30,7 @@
                     }
                 })
                 embed.addField(x, cat,true);
-            })            
+            })
         embed.setColor("ORANGE");
         embed.setTitle(`Help for LionBot v${ver}.`);
                 embed.setDescription("For more information on a command, please use `lion.help [command]`.");
@@ -37,7 +47,7 @@
 
         }
     } catch (e) {
-        message.channel.send("```" + e + "```")
+    throwex(e)
     }
 }
 

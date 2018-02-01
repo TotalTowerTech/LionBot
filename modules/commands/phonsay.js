@@ -1,10 +1,20 @@
-module.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args, throwex) => {
     const Discord = require('discord.js');
   var behavior="popup";
   var font_tag="";
   var text=args.join(" ");
   var lctext=text.toLowerCase();
   var trans=" ";
+  function throwex(e) {
+      var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
+      let embed = new Discord.RichEmbed()
+          .setTitle(embedTitle[Math.floor(Math.random() * embedTitle.length)])
+          .addField("Error Details", e)
+          .setFooter("The error that was thrown has been logged to the console.")
+          .setColor("RED")
+      message.channel.send({ embed });
+      console.log(e);
+  };
   		var phonArray=new Array;
   		phonArray["a"]="Alpha";
   		phonArray["b"]="Bravo";
@@ -46,7 +56,9 @@ module.exports.run = (client, message, args) => {
   		phonArray["-"]="[Dash]";
   		phonArray["."]="[Dot]";
   		phonArray[" "]="[space]";
-for(var i=0;i < lctext.length;i++){
+
+try{
+  for(var i=0;i < lctext.length;i++){
       var thisChar=lctext.charAt(i);
       trans += phonArray[thisChar] + " ";}
 
@@ -59,7 +71,10 @@ embed.setColor("ORANGE")
 message.delete()
 message.channel.send( {embed} )
 }
-
+catch (e) {
+throwex(e)
+}
+}
 
 module.exports.help = {
     name: "phonsay",

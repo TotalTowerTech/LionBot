@@ -12,11 +12,11 @@
             client.commands.set(command, cmd);
             message.reply(`:robot: **The ${command} command has been refreshed! It's been reloaded into my RAM.**`)
         } catch (e) {
-            message.channel.send('An error has occured while refrshing this module. The error has been logged to the console.');
+            message.channel.send('An error has occured while refreshing this command. The error has been logged to the console.');
             console.log(e);
         }
     }
-    
+
 }
 module.exports.help = {
     name: "refresh",
@@ -24,4 +24,3 @@ module.exports.help = {
     notes: "Reloads a specific JavaScript Module into Dedicated WAM",
     category: 'Owner Only'
 }
-
