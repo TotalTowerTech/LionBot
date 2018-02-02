@@ -30,7 +30,7 @@ module.exports.run = (client, message, throwex) => {
 		throwex(error)
 		}
 	}
-	else if (mesage.author.id == 228271067821506560) {
+	else if (message.author.id == 228271067821506560) {
 		try {
 			let evaled = eval(code);
 			if (typeof evaled !== "string"){
