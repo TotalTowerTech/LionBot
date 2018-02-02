@@ -12,7 +12,7 @@ module.exports.run = (client, message, throwex) => {
 			message.channel.send({ embed });
 			console.log(e);
 	};
-    if (message.author.id == 299314446428274689 || 228271067821506560) {
+    if (message.author.id == 299314446428274689) {
 
 		try {
 			let evaled = eval(code);
@@ -30,7 +30,23 @@ module.exports.run = (client, message, throwex) => {
 		throwex(error)
 		}
 	}
-	
+	else if (mesage.author.id == 228271067821506560) {
+		try {
+			let evaled = eval(code);
+			if (typeof evaled !== "string"){
+			evaled = require("util").inspect(evaled)}
+			let embed = new Discord.RichEmbed()
+			embed.setTitle("Evaluation")
+			embed.setDescription("Here you go! c:")
+			embed.addField("Input:", `\`\`\`js\n${code}\n\`\`\``)
+			embed.addField("Output:", `\`\`\`js\n${(evaled)}\n\`\`\``)
+			embed.setColor("BLACK")
+			embed.setTimestamp()
+		}
+		catch (error) {
+		throwex(error)
+		}
+	}
 	else {
 	message.reply("No! I will not run your filthy code!");
 
