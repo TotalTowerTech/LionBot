@@ -33,9 +33,6 @@ module.exports.run = (client, message, throwex) => {
 }
 }
 
-
-}
-
 module.exports.help = {
     name: "eval",
     args: "[code]",
