@@ -1,4 +1,5 @@
 module.exports.run = async (client, message, args) => {
+  const Discord = require('discord.js')
     var number = parseInt(args.join(" "));
     function throwex(e) {
   			var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
