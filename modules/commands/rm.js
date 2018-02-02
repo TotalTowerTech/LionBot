@@ -27,7 +27,7 @@ try {
         message.channel.send("I cannot delete 0 messages. ");
     }
     else {
-        message.channel.bulkDelete(intToParse).then(() => {
+        message.channel.bulkDelete(number).then(() => {
             message.channel.send(`:white_check_mark: Deleted ${number} messages!`);
         });
     }
