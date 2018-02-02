@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
   			console.log(e);
   	};
 
-    if (!message.author.hasPermission("MANAGE_MESSAGES")) return message.reply("**:no_entry_sign: ERROR:**: Insufficient permissions.")
+    if (!message.author.hasPermission("MANAGE_MESSAGES")) return message.reply("**:no_entry_sign: ERROR:**: Insufficient permissions.");
 try {
     if (isNaN(number)) {
         message.channel.send("You want me to delete... air?");
