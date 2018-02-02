@@ -20,15 +20,15 @@ try {
     else if (number < 0) {
         message.channel.send("I can't *add* messages! Try lion.embedsay for that.");
     }
-    else if (intToParse > 99) {
+    else if (number > 99) {
         message.channel.send("I can only count to 99 right now. Nothing more please!");
     }
-    else if (intToParse == 0) {
+    else if (number == 0) {
         message.channel.send("I cannot delete 0 messages. ");
     }
     else {
         message.channel.bulkDelete(intToParse).then(() => {
-            message.channel.send(`:white_check_mark: Deleted ${intToParse} messages!`);
+            message.channel.send(`:white_check_mark: Deleted ${number} messages!`);
         });
     }
   }
