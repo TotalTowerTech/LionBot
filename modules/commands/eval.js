@@ -30,15 +30,12 @@ module.exports.run = (client, message, throwex) => {
 				embed.setColor("BLACK")
 				embed.setTimestamp()
 			}
-	}
+
 			catch (error) {
 			throwex(error)
 			}
 }
-    else {
-  		message.reply("No! I will not run your filthy code!")
-    }
-
+   
 
 
 }
