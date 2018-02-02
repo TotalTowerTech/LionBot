@@ -11,7 +11,8 @@ module.exports.run = (client, message, throwex) => {
 			message.channel.send({ embed });
 			console.log(e);
 	};
-    if(message.author.id == 299314446428274689 || 228271067821506560){
+    if(!message.author.id == 299314446428274689 || 228271067821506560) return message.channel.send("Only the developers can use this command.")
+	else {
 			const code = args.join(" ");
 
 			try {
@@ -26,6 +27,7 @@ module.exports.run = (client, message, throwex) => {
 				embed.setColor("BLACK")
 				embed.setTimestamp()
 			}
+	}
 			catch (error) {
 			throwex(error)
 			}
