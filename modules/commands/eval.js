@@ -1,6 +1,7 @@
 module.exports.run = (client, message, throwex) => {
 	const Discord = require('discord.js');
   let args = message.content.split(" ").slice(1);
+	const code = args.join(" ");
 	function throwex(e) {
 			var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
 			let embed = new Discord.RichEmbed()
@@ -11,26 +12,28 @@ module.exports.run = (client, message, throwex) => {
 			message.channel.send({ embed });
 			console.log(e);
 	};
-    if !(message.author.id == 299314446428274689 || 228271067821506560) {
-		message.reply("No! I will not run your filthy code!");}
-	else {
-			const code = args.join(" ");
+    if (message.author.id == 299314446428274689 || 228271067821506560) {
 
-			try {
-				let evaled = eval(code);
-      	if (typeof evaled !== "string"){
-        evaled = require("util").inspect(evaled)}
-				let embed = new Discord.RichEmbed()
-				embed.setTitle("Evaluation")
-				embed.setDescription("Here you go! c:")
-				embed.addField("Input:", `\`\`\`js\n${code}\n\`\`\``)
-				embed.addField("Output:", `\`\`\`js\n${(evaled)}\n\`\`\``)
-				embed.setColor("BLACK")
-				embed.setTimestamp()
-			}
-			catch (error) {
-			throwex(error)
-			}
+		try {
+			let evaled = eval(code);
+			if (typeof evaled !== "string"){
+			evaled = require("util").inspect(evaled)}
+			let embed = new Discord.RichEmbed()
+			embed.setTitle("Evaluation")
+			embed.setDescription("Here you go! c:")
+			embed.addField("Input:", `\`\`\`js\n${code}\n\`\`\``)
+			embed.addField("Output:", `\`\`\`js\n${(evaled)}\n\`\`\``)
+			embed.setColor("BLACK")
+			embed.setTimestamp()
+		}
+		catch (error) {
+		throwex(error)
+		}
+	}
+	
+	else {
+	message.reply("No! I will not run your filthy code!");
+
 }
 }
 
