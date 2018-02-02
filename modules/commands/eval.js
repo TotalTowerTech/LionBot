@@ -11,8 +11,9 @@ module.exports.run = (client, message, throwex) => {
 			message.channel.send({ embed });
 			console.log(e);
 	};
-    if(!message.author.id == 299314446428274689 || 228271067821506560) return message.reply("No! I will not run your filthy code!")
-	else{
+    if(!message.author.id == 299314446428274689 || 228271067821506560) {
+		message.reply("No! I will not run your filthy code!");}
+	else {
 			const code = args.join(" ");
 
 			try {
