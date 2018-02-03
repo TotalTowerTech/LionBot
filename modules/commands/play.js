@@ -1,5 +1,5 @@
 module.exports.run = (client, message, args, throwex) => {
-    const Discord = require('discord.js')
+    const Discord = require('discord.js');
     const yt = require('ytdl-core');
     const opus = require("node-opus");
     function throwex(e) {
