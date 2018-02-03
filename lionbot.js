@@ -179,7 +179,7 @@ try{
     client.channels.get("265156361791209475").send({ embed });
 
   }
-  else if (guild.id == "356165218625388554") {
+  else if (newMessage.guild.id == "356165218625388554") {
     client.channels.get("409170359804231680").send({ embed });
 
   }
@@ -209,7 +209,7 @@ try{
     client.channels.get("265156361791209475").send({ embed });
 
   }
-  else if (guild.id == "356165218625388554") {
+  else if (Message.guild.id == "356165218625388554") {
     client.channels.get("409170359804231680").send({ embed });
 
   }
@@ -241,7 +241,7 @@ try{
     client.channels.get("265156361791209475").send({ embed });
 
   }
-  else if (guild.id == "356165218625388554") {
+  else if (member.guild.id == "356165218625388554") {
     client.channels.get("409170359804231680").send({ embed });
 
   }
