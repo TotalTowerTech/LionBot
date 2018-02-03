@@ -126,6 +126,10 @@ client.on("guildBanAdd", (guild, user, throwex) => {
     client.channels.get("265156361791209475").send({ embed });
 
   }
+  else if (guild.id == "356165218625388554") {
+    client.channels.get("409170359804231680").send({ embed });
+
+  }
   else{
           guild.channels.find(c => c.name == 'logs').send({ embed });
 }
@@ -145,6 +149,10 @@ client.on("guildBanRemove", (guild, user, throwex) => {
   }
   else if (guild.id == "264445053596991498") {
     client.channels.get("265156361791209475").send({ embed });
+
+  }
+  else if (guild.id == "356165218625388554") {
+    client.channels.get("409170359804231680").send({ embed });
 
   }
   else{
@@ -169,6 +177,10 @@ try{
   }
   else if (newMessage.guild.id == "264445053596991498") {
     client.channels.get("265156361791209475").send({ embed });
+
+  }
+  else if (guild.id == "356165218625388554") {
+    client.channels.get("409170359804231680").send({ embed });
 
   }
   else {
@@ -197,6 +209,10 @@ try{
     client.channels.get("265156361791209475").send({ embed });
 
   }
+  else if (guild.id == "356165218625388554") {
+    client.channels.get("409170359804231680").send({ embed });
+
+  }
   else{
           Message.guild.channels.find(c => c.name == 'logs').send({ embed });
 
@@ -223,6 +239,10 @@ try{
   }
   else if (member.guild.id == "264445053596991498") {
     client.channels.get("265156361791209475").send({ embed });
+
+  }
+  else if (guild.id == "356165218625388554") {
+    client.channels.get("409170359804231680").send({ embed });
 
   }
   else{
