@@ -38,8 +38,8 @@ catch (error){
 }
 }
 module.exports.help = {
-    name: 'ban',
-    args: '[person], [args]',
-    notes: 'Bans a person from the server.',
-    category: 'Moderation'
+    name: 'play',
+    args: '[song]',
+    notes: 'Plays a song.',
+    category: 'Fun'
 }
