@@ -19,6 +19,7 @@ embed.setDescription("*Thank you all c:*")
 embed.addField('Creator', "ServerLion")
 embed.addField('Handler', "FloppyDiskDrive")
 embed.addField('Help Command', "Jtsshieh")
+embed.addField('Music Base', `OhGodMusicBot by bdustin (github)`)
 embed.addField('Check here for more', "https://github.com/IBMPCDOS5/LionBot/blob/master/LICENSE")
 message.channel.send({ embed })
 }
