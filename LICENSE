@@ -2,7 +2,7 @@ MIT License
 
 Copyright (c) 2018 Nayab // ServerLion
 
-Some code is provided from PrecipitationJS by IBMPCDOS5 (FloppyDiskDrive#2282)
+Some code is provided from PrecipitationJS by IBMPCDOS5 (FloppyDiskDrive#2282) 
 As well as Justin (jtsshieh#6424)
 Additional code use may be noted in commit logs.
 
@@ -23,3 +23,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Original PRECIPJS license: https://github.com/jtsshieh/precipitation-js/blob/master/LICENSE
