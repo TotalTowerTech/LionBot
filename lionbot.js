@@ -1,104 +1,62 @@
-/****************************************
- *
- *   LionBot: (Basically Half-Baked) Moderation bot, with a few fun commands.
- *   written by ServerLion#1789
- *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the MIT License.
- *
- *  FloppyDiskDrive wrote the handler and helped me fix my derps. (Thanks again! c:)
- *  Jtsshieh wrote the help command
- *
- *
- * *************************************/
-
-var ver = "1.0.4";
-const Discord = require('discord.js');
-const fs = require('fs');
+const Discord = require("discord.js");
 const client = new Discord.Client();
+const fs = require('fs');
 client.commands = new Discord.Collection();
-const config = require("./config.json")
-var prefix = 'lion.'
-var vicCount = 0;
-var sameMsg = {};
 var banneResponse = ["Uh Oh. Moderators Sure aren't happy", "What did you do this time?", "Why do *I* have to do the dirty work?", "Banne! banne! banne!"]
-var token = config.token
 
-client.login(process.env.TOKEN)
+let prefix = 'lion.'
+
+
+//Elements of this handler (Mainly reading Files) were based on PrecipitationJS
+//Excelent help command used with permission from Jtsshieh and his bot BonGon
 
 client.on('ready', () => {
-    console.log("[i] LionBot " + ver + " is now ready to go!");
-    function gameRandomizer() {
-        var presence = ["Wii Sports", `${prefix}help | LionBot v${ver}`, "stuff", "with PrecipitationJS", `with ${client.guilds.size} guilds`];
-        var gameSetter = presence[Math.floor(Math.random() * presence.length)];
-        client.user.setGame(gameSetter);
-    }
-    var gameChooser = setInterval(gameRandomizer, 30000);
+  console.log(`Logged in as ${client.user.tag}!`);
 });
-
-var modCommand;
-
-function hasPermissions(perm) {
-    if (message.member.hasPermission(perm)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-fs.readdir(`./modules/commands/`, (err, files) => {
+//This is all reading files (Thanks agian to FloppyDiskDrive for allowing me to use some ellements of PrecipitationJS)
+fs.readdir("/Users/nayab_warach/Documents/Discord/LionBot/LionBot/LionBot/modules/commands/", (err, files) => {
     if (err) console.error(err);
 
-    let modules = files.filter(f => f.split(".").pop() === "js");
-    if (modules.length <= 0) {
-        console.log("No public commands found. Running with no public commands loaded.");
-        return;
-    }
-
-    console.log(`Now loading ${modules.length} public commands.`)
-    modules.forEach((f, i) => {
-        let props = require(`./modules/commands/${f}`);
+    let commandfiles = files.filter(f => f.split(".").pop() === "js");
+    console.log(`Now loading all commands...`)
+    commandfiles.forEach((f, i) => {
+        let yourfiles = require(`/Users/nayab_warach/Documents/Discord/LionBot/LionBot/LionBot/modules/commands/${f}`);
         try {
-            client.commands.set(props.help.name, props);
+            client.commands.set(yourfiles.help.name, yourfiles);
         } catch (err) {
-            console.log('One or more of your public commands caused an error. Check your public commands and try again. \n=> ' + err);
+            console.log(err);
+            console.log('Shutting Down...');
             process.exit(1)
         }
     })
 
-    console.log(`Finshed loading all ${modules.length} commands.`)
+    console.log(`Finshed loading all commands.`)
 })
 
+client.on('message', message => {
+  let array = message.content.split(" ");
+  let command = array[0];
+  let args = array.slice(1);
 
-client.on("message", message => {
-    if (message.author.bot) return;
-    if (message.channel.type === "dm") return;
+  function errorhandler(e) {
+    let embed = new Discord.RichEmbed()
+    embed.setTitle("Error!")
+    embed.setDescription("I think I did a bad")
+    embed.setColor("RED")
+    embed.addField("Details:", "```" + e + "```")
+    embed.setFooter("I'll go tell Serverlion now. Feel free to try again while I do.")
+    console.error("Uh Oh! [Error]   " + e);
+    message.channel.send({ embed });
+  }
+
+  if (!command.startsWith(prefix)) return;
+
+  let com = client.commands.get(command.slice(prefix.length));
+  if (com) {
+      com.run(client, message, args, errorhandler);
+  }
 
 
-
-    function throwex(e) {
-        var embedTitle = ["I got it... I got it... nope, I didn't get it.", "This bot is about as stable as Trump's Twitter.", "The error is a lie", "Got it! Take that, Precipitation!"];
-        let embed = new Discord.RichEmbed()
-            .setTitle(embedTitle[Math.floor(Math.random() * embedTitle.length)])
-            .addField("Error Details", e)
-            .setFooter("The error that was thrown has been logged to the console.")
-            .setColor("RED")
-        message.channel.send({ embed });
-        console.log(e);
-    };
-
-
-
-    let array = message.content.split(" ");
-    let command = array[0];
-    let args = array.slice(1);
-
-    if (!command.startsWith(prefix)) return;
-
-    let cmd = client.commands.get(command.slice(prefix.length));
-    if (cmd) {
-        cmd.run(client, message, args, throwex);
-    }
 
 });
 client.on("guildCreate", (guild) => {
@@ -222,41 +180,4 @@ catch (error){
   console.log(error)
 }
 });
-
-client.on("guildMemberAdd", (member, throwex, user) => {
-try{
-  let embed = new Discord.RichEmbed()
-  .setColor("GREEN")
-  .setTitle("Member Join")
-  .setDescription(`Welcome to the server!`)
-  .addField(`New Member Name`, (member.user.tag))
-  .addField(`Account Created On`, (member.user.createdAt))
-  .addField(`Member Joined On`, (member.joinedAt))
-  .setThumbnail(member.user.avatarURL)
-
-  if (member.guild.id == "336487228228370432") {
-     client.channels.get("398265769567191051").send({ embed });
-  }
-  else if (member.guild.id == "264445053596991498") {
-    client.channels.get("265156361791209475").send({ embed });
-
-  }
-  else if (member.guild.id == "356165218625388554") {
-    client.channels.get("409170359804231680").send({ embed });
-
-  }
-  else{
-          member.guild.channels.find(c => c.name == 'logs').send({ embed });
-
-}
-}
-catch (error){
-  console.log(error)
-}
-});
-
-
-
-process.on('unhandledRejection', function (err, p) {
-    console.log("[X] " + err.stack);
-});
+client.login(process.env.TOKEN);
